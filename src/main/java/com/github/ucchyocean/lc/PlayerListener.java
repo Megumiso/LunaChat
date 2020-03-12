@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -310,6 +311,8 @@ public class PlayerListener implements Listener {
             // チャットフォーマット装飾の適用
             if ( config.isEnableNormalChatMessageFormat() ) {
                 String format = config.getNormalChatMessageFormat();
+                //PlaceholderAPIの置き換え
+                format = PlaceholderAPI.setPlaceholders(event.getPlayer(),format);
                 format = replaceNormalChatFormatKeywords(format, event.getPlayer());
                 event.setFormat(format);
             }
@@ -375,6 +378,8 @@ public class PlayerListener implements Listener {
                     task.runTaskLater(LunaChat.getInstance(), wait);
                 }
             }
+
+
 
             // 発言内容の設定
             event.setMessage(message);

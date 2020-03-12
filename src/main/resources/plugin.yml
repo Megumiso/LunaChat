@@ -4,6 +4,7 @@ version: ${project.version}
 authors: [ucchy, YukiLeafX]
 description: ${project.description}
 softdepend: [Vault, dynmap, HawkEye, Multiverse-Core, mcMMO, Prism]
+depend: [PlaceholderAPI]
 
 commands:
   lunachat:
